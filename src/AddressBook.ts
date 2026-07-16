@@ -3,7 +3,7 @@ import { Contact } from "./Contact";
 export class AddressBook {
 
     contacts: Contact[] = [];
-    
+
     addContact(contact: Contact): void {
 
     const isDuplicate = this.contacts.some(existingContact =>
@@ -71,6 +71,17 @@ export class AddressBook {
         console.log("Contact Not Found");
 
     }
+//uc8
+}
+searchByCity(city: string): Contact[] {
+
+    return this.contacts.filter(contact => contact.city === city);
+
+}
+
+searchByState(state: string): Contact[] {
+
+    return this.contacts.filter(contact => contact.state === state);
 
 }
 }
