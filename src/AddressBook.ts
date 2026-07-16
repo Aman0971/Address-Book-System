@@ -10,13 +10,20 @@ export class AddressBook {
         console.log("Contact Added Successfully");
 
     }
+
     displayContacts(): void {
 
-        console.log("\nAddress Book Contacts");
-
-        this.contacts.forEach(contact => console.log(contact));
-
+    if (this.contacts.length === 0) {
+        console.log("Address Book is Empty");
+        return;
     }
+
+    console.log("\n------ Contact List ------");
+
+    this.contacts.forEach(contact => console.log(contact));
+
+   }
+   
    //uc3
     editContact(firstName: string, updatedContact: Contact): void {
 
