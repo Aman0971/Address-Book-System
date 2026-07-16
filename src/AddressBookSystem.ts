@@ -153,4 +153,30 @@ viewPersonsByState(): void {
     });
 
 }
+countByCity(): void {
+
+    this.updateDictionary();
+
+    console.log("\n----- Contact Count By City -----");
+
+    this.cityDictionary.forEach((persons, city) => {
+
+        console.log(`${city} : ${persons.length}`);
+
+    });
+
+}
+countByState(): void {
+
+    this.updateDictionary();
+
+    console.log("\n----- Contact Count By State -----");
+
+    this.stateDictionary.forEach((persons, state) => {
+
+        console.log(`${state} : ${persons.length}`);
+
+    });
+
+}
 }

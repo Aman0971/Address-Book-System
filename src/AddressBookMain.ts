@@ -28,7 +28,9 @@ do {
     console.log("9. Search By State");
     console.log("10. View Persons By City");
     console.log("11. View Persons By State");
-    console.log("12. Exit");
+    console.log("12. Count Contacts By City");
+    console.log("13. Count Contacts By State");
+    console.log("14. Exit");
 
     choice = readline.questionInt("Enter your choice : ");
 
@@ -154,6 +156,18 @@ do {
 
         case 12:
 
+            system.countByCity();
+
+            break;
+
+        case 13:
+
+            system.countByState();
+
+            break;
+
+        case 14:
+
             console.log("Thank You");
             break;
 
@@ -163,4 +177,4 @@ do {
 
     }
 
-} while (choice !== 12);
+} while (choice !== 14);
