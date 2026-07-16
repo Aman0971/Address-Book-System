@@ -1,6 +1,9 @@
 import { Contact } from "./Contact";
+import { AddressBook } from "./AddressBook";
 
 console.log("Welcome to Address Book Program");
+
+const addressBook = new AddressBook();
 
 const person = new Contact(
     "Aman",
@@ -13,4 +16,6 @@ const person = new Contact(
     "aman@gmail.com"
 );
 
-console.log(person);
+addressBook.addContact(person);
+
+addressBook.displayContacts();
