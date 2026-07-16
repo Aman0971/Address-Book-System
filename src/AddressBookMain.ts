@@ -18,7 +18,7 @@ const person1 = new Contact(
 
 addressBook.addContact(person1);
 
-console.log("\nBefore Edit");
+console.log("\nContacts Before Edit");
 addressBook.displayContacts();
 
 const updatedPerson = new Contact(
@@ -34,5 +34,10 @@ const updatedPerson = new Contact(
 
 addressBook.editContact("Aman", updatedPerson);
 
-console.log("\nAfter Edit");
+console.log("\nContacts After Edit");
+addressBook.displayContacts();
+
+addressBook.deleteContact("Aman");
+
+console.log("\nContacts After Delete");
 addressBook.displayContacts();
