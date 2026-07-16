@@ -31,7 +31,10 @@ do {
     console.log("12. Count Contacts By City");
     console.log("13. Count Contacts By State");
     console.log("14. Sort Contacts By Name");
-    console.log("15. Exit");
+    console.log("15.Sort Contacts By City");
+    console.log("16.Sort Contacts By State");
+    console.log("17.Sort Contacts By Zip");
+    console.log("18. Exit");
 
     choice = readline.questionInt("Enter your choice : ");
 
@@ -169,11 +172,29 @@ do {
 
         case 14:
 
-            system.sortByName();
+            addressBook.sortByName();
 
             break;
 
         case 15:
+
+            addressBook.sortByCity();
+
+            break;
+
+        case 16:
+
+            addressBook.sortByState();
+
+            break;
+
+        case 17:
+
+            addressBook.sortByZip();
+
+            break;
+
+        case 18:
 
             console.log("Thank You");
             break;
@@ -184,4 +205,4 @@ do {
 
     }
 
-} while (choice !== 15);
+} while (choice !== 18);

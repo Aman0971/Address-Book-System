@@ -84,8 +84,8 @@ searchByState(state: string): Contact[] {
     return this.contacts.filter(contact => contact.state === state);
 
 }
-
-sortByName(): void {
+//uc11
+   sortByName(): void {
 
     if (this.contacts.length === 0) {
 
@@ -99,6 +99,61 @@ sortByName(): void {
     );
 
     console.log("\n----- Contacts Sorted By Name -----");
+
+    sortedContacts.forEach(contact => console.log(contact));
+
+}
+//uc12
+sortByCity(): void {
+
+    if (this.contacts.length === 0) {
+
+        console.log("Address Book is Empty");
+        return;
+
+    }
+
+    const sortedContacts = [...this.contacts].sort((contact1, contact2) =>
+        contact1.city.localeCompare(contact2.city)
+    );
+
+    console.log("\n----- Contacts Sorted By City -----");
+
+    sortedContacts.forEach(contact => console.log(contact));
+
+}
+sortByState(): void {
+
+    if (this.contacts.length === 0) {
+
+        console.log("Address Book is Empty");
+        return;
+
+    }
+
+    const sortedContacts = [...this.contacts].sort((contact1, contact2) =>
+        contact1.state.localeCompare(contact2.state)
+    );
+
+    console.log("\n----- Contacts Sorted By State -----");
+
+    sortedContacts.forEach(contact => console.log(contact));
+
+}
+sortByZip(): void {
+
+    if (this.contacts.length === 0) {
+
+        console.log("Address Book is Empty");
+        return;
+
+    }
+
+    const sortedContacts = [...this.contacts].sort((contact1, contact2) =>
+        contact1.zip - contact2.zip
+    );
+
+    console.log("\n----- Contacts Sorted By Zip -----");
 
     sortedContacts.forEach(contact => console.log(contact));
 
