@@ -158,4 +158,9 @@ sortByZip(): void {
     sortedContacts.forEach(contact => console.log(contact));
 
 }
+getContacts(): Contact[] {
+
+    return this.contacts;
+
+}
 }

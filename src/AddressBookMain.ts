@@ -1,7 +1,9 @@
+import { FileIO } from "./utils/FileIO";
 import * as readline from "readline-sync";
 import { Contact } from "./Contact";
 import { AddressBook } from "./AddressBook";
 import { AddressBookSystem } from "./AddressBookSystem";
+
 
 console.log("Welcome to Address Book Program");
 
@@ -34,7 +36,9 @@ do {
     console.log("15.Sort Contacts By City");
     console.log("16.Sort Contacts By State");
     console.log("17.Sort Contacts By Zip");
-    console.log("18. Exit");
+    console.log("18. Write Contacts To File");
+    console.log("19. Read Contacts From File");
+    console.log("20. Exit");
 
     choice = readline.questionInt("Enter your choice : ");
 
@@ -196,6 +200,18 @@ do {
 
         case 18:
 
+            FileIO.writeToFile("contacts.json", addressBook.getContacts());
+
+            break;
+
+        case 19:
+
+            FileIO.readFromFile("contacts.json");
+
+            break;
+
+        case 20:
+
             console.log("Thank You");
             break;
 
@@ -205,4 +221,4 @@ do {
 
     }
 
-} while (choice !== 18);
+} while (choice !== 20);

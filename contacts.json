@@ -1,0 +1,12 @@
+[
+  {
+    "firstName": "Aman",
+    "lastName": "Chaudhary",
+    "address": "xyz",
+    "city": "xyz",
+    "state": "xyz",
+    "zip": 232323,
+    "phoneNumber": 1234567890,
+    "email": "aman@gmail.com"
+  }
+]
