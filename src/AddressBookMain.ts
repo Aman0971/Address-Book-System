@@ -30,7 +30,8 @@ do {
     console.log("11. View Persons By State");
     console.log("12. Count Contacts By City");
     console.log("13. Count Contacts By State");
-    console.log("14. Exit");
+    console.log("14. Sort Contacts By Name");
+    console.log("15. Exit");
 
     choice = readline.questionInt("Enter your choice : ");
 
@@ -168,6 +169,12 @@ do {
 
         case 14:
 
+            system.sortByName();
+
+            break;
+
+        case 15:
+
             console.log("Thank You");
             break;
 
@@ -177,4 +184,4 @@ do {
 
     }
 
-} while (choice !== 14);
+} while (choice !== 15);

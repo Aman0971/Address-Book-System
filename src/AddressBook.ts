@@ -84,4 +84,23 @@ searchByState(state: string): Contact[] {
     return this.contacts.filter(contact => contact.state === state);
 
 }
+
+sortByName(): void {
+
+    if (this.contacts.length === 0) {
+
+        console.log("Address Book is Empty");
+        return;
+
+    }
+
+    const sortedContacts = [...this.contacts].sort((contact1, contact2) =>
+        contact1.firstName.localeCompare(contact2.firstName)
+    );
+
+    console.log("\n----- Contacts Sorted By Name -----");
+
+    sortedContacts.forEach(contact => console.log(contact));
+
+}
 }
