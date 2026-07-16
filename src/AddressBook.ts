@@ -3,13 +3,25 @@ import { Contact } from "./Contact";
 export class AddressBook {
 
     contacts: Contact[] = [];
+    
     addContact(contact: Contact): void {
 
-        this.contacts.push(contact);
+    const isDuplicate = this.contacts.some(existingContact =>
+        existingContact.equals(contact)
+    );
 
-        console.log("Contact Added Successfully");
+    if (isDuplicate) {
+
+        console.log("Duplicate Contact Found. Contact Not Added.");
+        return;
 
     }
+
+    this.contacts.push(contact);
+
+    console.log("Contact Added Successfully");
+
+}
 
     displayContacts(): void {
 
@@ -23,7 +35,7 @@ export class AddressBook {
     this.contacts.forEach(contact => console.log(contact));
 
    }
-   
+
    //uc3
     editContact(firstName: string, updatedContact: Contact): void {
 

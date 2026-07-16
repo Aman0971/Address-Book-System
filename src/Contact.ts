@@ -30,5 +30,10 @@ export class Contact {
         this.email = email;
 
     }
+    equals(contact: Contact): boolean {
 
+      return this.firstName === contact.firstName &&
+        this.lastName === contact.lastName;
+
+    }
 }
