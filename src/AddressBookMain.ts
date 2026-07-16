@@ -1,10 +1,14 @@
+import { AddressBookSystem } from "./AddressBookSystem";
 import * as readline from "readline-sync";
 import { Contact } from "./Contact";
-import { AddressBook } from "./AddressBook";
 
 console.log("Welcome to Address Book Program");
 
-const addressBook = new AddressBook();
+const system = new AddressBookSystem();
+
+system.createAddressBook("Default");
+
+let addressBook = system.getAddressBook("Default")!;
 
 let choice: number;
 
@@ -12,17 +16,45 @@ do {
 
     console.log("\n===== ADDRESS BOOK MENU =====");
 
-    console.log("1. Add Contact");
-    console.log("2. Edit Contact");
-    console.log("3. Delete Contact");
-    console.log("4. Display Contacts");
-    console.log("5. Exit");
+    console.log("1. Create Address Book");
+    console.log("2. Select Address Book");
+    console.log("3. Add Contact");
+    console.log("4. Edit Contact");
+    console.log("5. Delete Contact");
+    console.log("6. Display Contacts");
+    console.log("7. Display Address Books");
+    console.log("8. Exit");
 
     choice = readline.questionInt("Enter your choice : ");
 
     switch (choice) {
 
         case 1:
+
+            const bookName = readline.question("Enter Address Book Name : ");
+            system.createAddressBook(bookName);
+            break;
+
+        case 2:
+
+            const selectBook = readline.question("Enter Address Book Name : ");
+
+            const selectedBook = system.getAddressBook(selectBook);
+
+            if (selectedBook) {
+
+                addressBook = selectedBook;
+                console.log("Switched to " + selectBook);
+
+            } else {
+
+                console.log("Address Book Not Found");
+
+            }
+
+            break;
+
+        case 3:
 
             const firstName = readline.question("First Name : ");
             const lastName = readline.question("Last Name : ");
@@ -48,7 +80,7 @@ do {
 
             break;
 
-        case 2:
+        case 4:
 
             const editName = readline.question("Enter First Name : ");
 
@@ -69,7 +101,7 @@ do {
 
             break;
 
-        case 3:
+        case 5:
 
             const deleteName = readline.question("Enter First Name : ");
 
@@ -77,16 +109,21 @@ do {
 
             break;
 
-        case 4:
+        case 6:
 
             addressBook.displayContacts();
 
             break;
 
-        case 5:
+        case 7:
+
+            system.displayAddressBooks();
+
+            break;
+
+        case 8:
 
             console.log("Thank You");
-
             break;
 
         default:
@@ -95,4 +132,4 @@ do {
 
     }
 
-} while (choice !== 5);
+} while (choice !== 8);
