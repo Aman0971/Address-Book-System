@@ -5,7 +5,7 @@ console.log("Welcome to Address Book Program");
 
 const addressBook = new AddressBook();
 
-const person = new Contact(
+const person1 = new Contact(
     "Aman",
     "Chaudhary",
     "Khalilabad",
@@ -16,6 +16,23 @@ const person = new Contact(
     "aman@gmail.com"
 );
 
-addressBook.addContact(person);
+addressBook.addContact(person1);
 
+console.log("\nBefore Edit");
+addressBook.displayContacts();
+
+const updatedPerson = new Contact(
+    "Aman",
+    "Chaudhary",
+    "Lucknow",
+    "Lucknow",
+    "Uttar Pradesh",
+    226001,
+    9999999999,
+    "aman123@gmail.com"
+);
+
+addressBook.editContact("Aman", updatedPerson);
+
+console.log("\nAfter Edit");
 addressBook.displayContacts();
