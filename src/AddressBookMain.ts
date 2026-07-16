@@ -26,7 +26,9 @@ do {
     console.log("7. Display Address Books");
     console.log("8. Search By City");
     console.log("9. Search By State");
-    console.log("10. Exit");
+    console.log("10. View Persons By City");
+    console.log("11. View Persons By State");
+    console.log("12. Exit");
 
     choice = readline.questionInt("Enter your choice : ");
 
@@ -140,6 +142,18 @@ do {
 
         case 10:
 
+            system.viewPersonsByCity();
+
+            break;
+
+        case 11:
+
+            system.viewPersonsByState();
+
+            break;
+
+        case 12:
+
             console.log("Thank You");
             break;
 
@@ -149,4 +163,4 @@ do {
 
     }
 
-} while (choice !== 10);
+} while (choice !== 12);

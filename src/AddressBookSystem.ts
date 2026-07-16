@@ -1,8 +1,13 @@
 import { AddressBook } from "./AddressBook";
+import { Contact } from "./Contact";
 
 export class AddressBookSystem {
 
     addressBooks: Map<string, AddressBook> = new Map();
+
+    cityDictionary: Map<string, Contact[]> = new Map();
+
+stateDictionary: Map<string, Contact[]> = new Map();
 
     createAddressBook(name: string): void {
 
@@ -95,4 +100,57 @@ searchPersonByState(state: string): void {
 
 }
 
+updateDictionary(): void {
+
+    this.cityDictionary.clear();
+    this.stateDictionary.clear();
+
+    this.addressBooks.forEach((addressBook) => {
+
+        addressBook.contacts.forEach(contact => {
+
+            if (!this.cityDictionary.has(contact.city)) {
+                this.cityDictionary.set(contact.city, []);
+            }
+
+            this.cityDictionary.get(contact.city)?.push(contact);
+
+            if (!this.stateDictionary.has(contact.state)) {
+                this.stateDictionary.set(contact.state, []);
+            }
+
+            this.stateDictionary.get(contact.state)?.push(contact);
+
+        });
+
+    });
+
+}
+viewPersonsByCity(): void {
+
+    this.updateDictionary();
+
+    this.cityDictionary.forEach((persons, city) => {
+
+        console.log(`\nCity : ${city}`);
+
+        persons.forEach(person => console.log(person));
+
+    });
+
+}
+
+viewPersonsByState(): void {
+
+    this.updateDictionary();
+
+    this.stateDictionary.forEach((persons, state) => {
+
+        console.log(`\nState : ${state}`);
+
+        persons.forEach(person => console.log(person));
+
+    });
+
+}
 }
